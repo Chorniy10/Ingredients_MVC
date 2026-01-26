@@ -5,6 +5,7 @@ using PetProject_MVC.Models;
 
 namespace PetProject_MVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class IngredientController : Controller
     {
         private Repository<Ingredient> ingredients;
@@ -13,13 +14,11 @@ namespace PetProject_MVC.Controllers
             ingredients = new Repository<Ingredient>(context);
         }
 
-        [Authorize]
         public  async Task <IActionResult> Index()
         {
             return View(await ingredients.GetAllAsync());
         }
 
-        [Authorize]
         public async Task<IActionResult> Details(int id)
         {
 
@@ -29,14 +28,12 @@ namespace PetProject_MVC.Controllers
             return View(await ingredients.GetByIdAsync(id, new QueryOptions<Ingredient>() {Includes = "ProductIngredients.Product" }));
         }
 
-        [Authorize]
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IngredientId, Name")]  Ingredient ingredient)
@@ -49,14 +46,12 @@ namespace PetProject_MVC.Controllers
             return View(ingredient);
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             return View(await ingredients.GetByIdAsync(id, new QueryOptions<Ingredient> { Includes = "ProductIngredients.Product" }));
         }
 
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(Ingredient ingredient)
@@ -65,14 +60,12 @@ namespace PetProject_MVC.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             return View(await ingredients.GetByIdAsync(id, new QueryOptions<Ingredient> { Includes = "ProductIngredients.Product" }));
         }
 
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Ingredient ingredient)

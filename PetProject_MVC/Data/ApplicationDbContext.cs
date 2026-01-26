@@ -58,8 +58,8 @@ namespace PetProject_MVC.Data
                 new Product
                 {
                     ProductId = 1,
-                    Name = "Beef Taco",
-                    Description = "A delicious beef taco",
+                    Name = "Beef pizza",
+                    Description = "A delicious beef pizza",
                     Price = 2.5m,
                     Stock = 100,
                     CategoryId = 2
@@ -67,8 +67,8 @@ namespace PetProject_MVC.Data
                 new Product
                 {
                     ProductId = 2,
-                    Name = "Chicken Taco",
-                    Description = "A delicious chicken taco",
+                    Name = "Chicken pizza",
+                    Description = "A delicious chicken pizza",
                     Price = 2.5m,
                     Stock = 100,
                     CategoryId = 2
@@ -76,8 +76,8 @@ namespace PetProject_MVC.Data
                 new Product
                 {
                     ProductId = 3,
-                    Name = "Fish Taco",
-                    Description = "A delicious beef taco",
+                    Name = "Fish pizza",
+                    Description = "A delicious fish pizza",
                     Price = 3.99m,
                     Stock = 95,
                     CategoryId = 2

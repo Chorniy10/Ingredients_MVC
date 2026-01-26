@@ -5,6 +5,7 @@ using PetProject_MVC.Models;
 
 namespace PetProject_MVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private Repository<Product> products;
